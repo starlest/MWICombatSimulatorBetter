@@ -222,6 +222,17 @@
             border-color: var(--mwi-border);
         }
 
+        body.dark-mode .card-header,
+        body.dark-mode .card-footer {
+            background-color: var(--mwi-surface-2);
+            border-color: var(--mwi-border);
+            color: var(--mwi-heading);
+        }
+
+        .card-header b {
+            font-size: 1.05rem;
+        }
+
         body.dark-mode .dropdown-menu {
             background-color: var(--mwi-panel);
             border-color: var(--mwi-border);
@@ -1214,9 +1225,11 @@
                 <!-- #endregion -->
             </div>
             <div class="col-md-5">
-                <div class="row mb-3">
-                    <b data-i18n="common:simulationResults.title">Simulation Results</b>
-                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <b data-i18n="common:simulationResults.title">Simulation Results</b>
+                    </div>
+                    <div class="card-body">
                 <div class="row">
                     <!-- #region Simulation Results -->
                     <div class="col-md-5">
@@ -1310,6 +1323,8 @@
                         </div>
                     </div>
                     <!-- #endregion -->
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
