@@ -2913,6 +2913,7 @@ function onTabChange(event) {
     }
 
     updateContent();
+    saveAutosaveState();
 }
 
 document.querySelectorAll('#playerTab .nav-link').forEach(tab => {
@@ -3928,6 +3929,7 @@ function loadEquipmentSetIntoUI(equipmentSet) {
     updateUI();
 
     updateContent();
+    saveAutosaveState();
 }
 
 // #endregion
@@ -3969,6 +3971,7 @@ function initImportExportModal() {
         updateState();
         updateUI();
         resetImportInputs();
+        saveAutosaveState();
     });
 }
 
@@ -4411,6 +4414,89 @@ function updateNextPlayer(currentPlayerNumber) {
     refreshAchievementStatics();
 }
 
+// #region Autosave
+
+const AUTOSAVE_STORAGE_KEY = "mwiCombatSim_autosave_v1";
+let autosaveDebounceHandle = null;
+
+function scheduleAutosave() {
+    clearTimeout(autosaveDebounceHandle);
+    autosaveDebounceHandle = setTimeout(saveAutosaveState, 600);
+}
+
+function saveAutosaveState() {
+    try {
+        savePreviousPlayer(currentPlayerTabId);
+        const snapshot = {
+            version: 1,
+            playerDataMap: playerDataMap,
+            currentPlayerTabId: currentPlayerTabId,
+        };
+        localStorage.setItem(AUTOSAVE_STORAGE_KEY, JSON.stringify(snapshot));
+    } catch (err) {
+        console.error("Failed to autosave build:", err);
+    }
+}
+
+function restoreAutosavedState() {
+    let raw;
+    try {
+        raw = localStorage.getItem(AUTOSAVE_STORAGE_KEY);
+    } catch (err) {
+        return;
+    }
+    if (!raw) {
+        return;
+    }
+
+    let snapshot;
+    try {
+        snapshot = JSON.parse(raw);
+    } catch (err) {
+        console.error("Failed to parse autosaved build, ignoring it:", err);
+        return;
+    }
+    if (!snapshot || !snapshot.playerDataMap) {
+        return;
+    }
+
+    playerDataMap = snapshot.playerDataMap;
+    const restoredTabId =
+        snapshot.currentPlayerTabId && playerDataMap[snapshot.currentPlayerTabId] ? snapshot.currentPlayerTabId : "1";
+
+    try {
+        updateNextPlayer(restoredTabId);
+    } catch (err) {
+        console.error("Failed to restore autosaved build:", err);
+        return;
+    }
+    currentPlayerTabId = restoredTabId;
+
+    try {
+        const importSet = JSON.parse(playerDataMap[restoredTabId]);
+        if ("zone" in importSet) {
+            document.getElementById("selectZone").value = importSet["zone"];
+        }
+        if ("simulationTime" in importSet) {
+            document.getElementById("inputSimulationTime").value = importSet["simulationTime"];
+        }
+    } catch (err) {
+        console.error("Failed to restore autosaved zone/simulation time:", err);
+    }
+
+    document.querySelectorAll("#playerTab .nav-link").forEach((tab) => {
+        const isTarget = tab.id === "player" + restoredTabId + "-tab";
+        tab.classList.toggle("active", isTarget);
+        tab.setAttribute("aria-selected", isTarget ? "true" : "false");
+    });
+}
+
+document.addEventListener("input", scheduleAutosave);
+document.addEventListener("change", scheduleAutosave);
+window.addEventListener("beforeunload", saveAutosaveState);
+
+// #endregion
+
 function showErrorModal(error) {
     let zoneSelect = document.getElementById("selectZone");
     let simulationTimeInput = document.getElementById("inputSimulationTime");
@@ -4830,6 +4916,8 @@ initDamageDoneTaken();
 initPatchNotes();
 initExtraBuffSection();
 initHpMpVisualization();
+
+restoreAutosavedState();
 
 updateState();
 updateUI();
