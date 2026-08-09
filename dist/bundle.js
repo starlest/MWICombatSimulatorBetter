@@ -6700,7 +6700,10 @@ function updateUI() {
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 
-if (localStorage.getItem('darkModeEnabled') === 'true') {
+const storedDarkModeEnabled = localStorage.getItem('darkModeEnabled');
+const darkModeEnabledByDefault = storedDarkModeEnabled === null ? true : storedDarkModeEnabled === 'true';
+
+if (darkModeEnabledByDefault) {
     body.classList.add('dark-mode');
     const tables = document.getElementsByClassName('profit-table');
     for (const table of tables) {

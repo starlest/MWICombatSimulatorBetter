@@ -3,47 +3,24 @@
 
 <head>
     <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+                "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+        }
+
         .form-control {
             min-width: 3.60rem
         }
 
-        body.dark-mode {
-            background-color: #333;
-            color: #f0f0f0;
-        }
-
-        body.dark-mode header {
-            background-color: #666;
-        }
-
-        body.dark-mode input[type="number"],
-        body.dark-mode .form-select,
-        body.dark-mode .input-group-text,
-        body.dark-mode .accordion-button,
-        body.dark-mode .accordion-collapse,
-        body.dark-mode .modal-content,
-        body.dark-mode textarea {
-            background-color: #444;
-            color: #f0f0f0;
-            border: 1px solid #999;
-            /* Add other relevant styles for form controls in dark mode */
-        }
-
-        body.dark-mode #expensesTable,
-        body.dark-mode #revenueTable,
-        body.dark-mode #noRngRevenueTable {
-            color: #f0f0f0;
-        }
-
         #allZonesData {
             width: 100%;
-            table-layout: auto; 
+            table-layout: auto;
         }
 
         #allZonesData th, #allZonesData td {
-            min-width: 90px; 
+            min-width: 90px;
             padding: 8px;
-            border: 1px solid #ddd; 
+            border: 1px solid #ddd;
         }
 
         .modal-body {
@@ -51,19 +28,19 @@
         }
 
         #allZonesData th {
-        cursor: pointer; 
+        cursor: pointer;
         position: relative;
         padding: 10px;
-        background-color: #f8f9fa; 
+        background-color: #f8f9fa;
         }
 
         #allZonesData th:not(:nth-child(-n+2)) {
-            cursor: pointer; 
+            cursor: pointer;
         }
 
         #allZonesData th:not(:nth-child(-n+2)):hover {
-            background-color: #e9ecef; 
-            color: #000; 
+            background-color: #e9ecef;
+            color: #000;
         }
 
         #allZonesData td:not(:nth-child(-n+2)) {
@@ -71,28 +48,13 @@
         }
 
         .sort-asc::after {
-            content: '▲'; 
+            content: '▲';
             margin-left: 5px;
         }
 
         .sort-desc::after {
-            content: '▼'; 
+            content: '▼';
             margin-left: 5px;
-        }
-
-        body.dark-mode #allZonesData th,
-        body.dark-mode #allZonesData td {
-            border: 1px solid #555; 
-            padding: 8px; 
-        }
-
-        body.dark-mode #allZonesData th {
-            background-color: #444; 
-        }
-
-        body.dark-mode .card {
-            background-color: #444;
-            color: #f0f0f0;
         }
 
         .outlined-box {
@@ -101,6 +63,248 @@
             padding: 15px; /* Padding inside the box */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
         }
+
+        /* #region Milky Way Idle theme */
+        body.dark-mode {
+            --mwi-bg: #131419;
+            --mwi-panel: #1a1f33;
+            --mwi-surface-2: #2c2e45;
+            --mwi-input-bg: #1e2338;
+            --mwi-border: #323450;
+            --mwi-accent: #5381fd;
+            --mwi-accent-hover: #6d93ff;
+            --mwi-text: #e7e7e7;
+            --mwi-text-muted: #a9adb8;
+            --mwi-heading: #98a7e9;
+            --mwi-teal: #2fc4a7;
+            --mwi-gold: #ee9a1d;
+
+            background-color: var(--mwi-bg);
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode a {
+            color: var(--mwi-heading);
+        }
+
+        body.dark-mode a:hover {
+            color: var(--mwi-accent-hover);
+        }
+
+        body.dark-mode b,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6 {
+            color: var(--mwi-heading);
+        }
+
+        body.dark-mode input[type="number"],
+        body.dark-mode input[type="text"],
+        body.dark-mode .form-control,
+        body.dark-mode .form-select,
+        body.dark-mode .input-group-text,
+        body.dark-mode .accordion-button,
+        body.dark-mode .accordion-collapse,
+        body.dark-mode .modal-content,
+        body.dark-mode textarea {
+            background-color: var(--mwi-input-bg);
+            color: var(--mwi-text);
+            border: 1px solid var(--mwi-border);
+        }
+
+        body.dark-mode .form-control:focus,
+        body.dark-mode .form-select:focus {
+            background-color: var(--mwi-input-bg);
+            color: var(--mwi-text);
+            border-color: var(--mwi-accent);
+            box-shadow: 0 0 0 0.25rem rgba(83, 129, 253, 0.35);
+        }
+
+        body.dark-mode .form-control::placeholder {
+            color: var(--mwi-text-muted);
+        }
+
+        body.dark-mode .form-control:disabled,
+        body.dark-mode .form-select:disabled {
+            background-color: var(--mwi-panel);
+            color: var(--mwi-text-muted);
+        }
+
+        body.dark-mode .form-check-input {
+            background-color: var(--mwi-input-bg);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .form-check-input:checked {
+            background-color: var(--mwi-accent);
+            border-color: var(--mwi-accent);
+        }
+
+        body.dark-mode .form-check-input:focus {
+            border-color: var(--mwi-accent);
+            box-shadow: 0 0 0 0.25rem rgba(83, 129, 253, 0.35);
+        }
+
+        body.dark-mode .btn-primary {
+            background-color: var(--mwi-accent);
+            border-color: var(--mwi-accent);
+        }
+
+        body.dark-mode .btn-primary:hover,
+        body.dark-mode .btn-primary:focus,
+        body.dark-mode .btn-primary:active {
+            background-color: var(--mwi-accent-hover);
+            border-color: var(--mwi-accent-hover);
+        }
+
+        body.dark-mode .btn-secondary {
+            background-color: var(--mwi-surface-2);
+            border-color: var(--mwi-border);
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode .btn-secondary:hover {
+            background-color: var(--mwi-border);
+            border-color: var(--mwi-border);
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        body.dark-mode .nav-tabs {
+            border-bottom-color: var(--mwi-border);
+        }
+
+        body.dark-mode .nav-tabs .nav-link {
+            color: var(--mwi-text-muted);
+            border-color: transparent;
+        }
+
+        body.dark-mode .nav-tabs .nav-link:hover {
+            color: var(--mwi-text);
+            border-color: var(--mwi-border) var(--mwi-border) var(--mwi-border);
+        }
+
+        body.dark-mode .nav-tabs .nav-link.active {
+            color: #fff;
+            background-color: var(--mwi-accent);
+            border-color: var(--mwi-accent);
+        }
+
+        body.dark-mode .modal-header,
+        body.dark-mode .modal-footer {
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .accordion-item {
+            background-color: var(--mwi-panel);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .accordion-button:not(.collapsed) {
+            background-color: var(--mwi-surface-2);
+            color: #fff;
+            box-shadow: inset 0 -1px 0 var(--mwi-border);
+        }
+
+        body.dark-mode .accordion-button::after {
+            filter: invert(1) brightness(1.8);
+        }
+
+        body.dark-mode .card {
+            background-color: var(--mwi-panel);
+            color: var(--mwi-text);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .dropdown-menu {
+            background-color: var(--mwi-panel);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .dropdown-item {
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode .dropdown-item:hover,
+        body.dark-mode .dropdown-item:focus {
+            background-color: var(--mwi-surface-2);
+            color: #fff;
+        }
+
+        body.dark-mode .progress {
+            background-color: var(--mwi-input-bg);
+        }
+
+        body.dark-mode .progress-bar {
+            background-color: var(--mwi-accent);
+        }
+
+        body.dark-mode .table {
+            color: var(--mwi-text);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .table-bordered {
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .table > :not(caption) > * > * {
+            border-bottom-color: var(--mwi-border);
+            background-color: transparent;
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode #expensesTable,
+        body.dark-mode #revenueTable,
+        body.dark-mode #noRngRevenueTable {
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode #allZonesData th,
+        body.dark-mode #allZonesData td {
+            border: 1px solid var(--mwi-border);
+            padding: 8px;
+        }
+
+        body.dark-mode #allZonesData th {
+            background-color: var(--mwi-surface-2);
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode #allZonesData th:not(:nth-child(-n+2)):hover {
+            background-color: var(--mwi-accent);
+            color: #fff;
+        }
+
+        body.dark-mode .outlined-box {
+            border-color: var(--mwi-border);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: var(--mwi-bg);
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: var(--mwi-surface-2);
+            border-radius: 6px;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: var(--mwi-accent);
+        }
+        /* #endregion */
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
