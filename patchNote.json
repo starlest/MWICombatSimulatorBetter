@@ -1,190 +1,202 @@
 {
-    "2026年5月5日":
+    "August 9, 2026":
     [
-        "更新装备数据和本地化名称"
+        "Added local autosave: your build (levels, equipment, food, drinks, abilities, triggers, house rooms, achievements, zone, and simulation time) now saves automatically in your browser and restores itself next time you visit, so there's no more manual export/import between sessions",
+        "Restyled the entire UI to match Milky Way Idle's own navy/periwinkle theme, and made it the default for new visitors",
+        "Removed light mode entirely; the dark, game-matching theme is now the only theme",
+        "Consolidated all scattered action buttons (Start/Stop Simulation, House, Achievements, Get/Edit Prices, Equipment Sets, Import/Export, Patch Notes, Wipe Events, Experimental Features) into a single toolbar under the player tabs",
+        "Reworked the Equipment section into a slot grid matching the game's own equipment layout, with enhancement level shown smaller and less prominent than the equipped item",
+        "Wrapped Simulation Results and Combat Stats in their own cards for clear visual separation, and moved Combat Stats to sit below Simulation Results in a compact multi-column layout so it's no longer excessively long",
+        "Swapped the display order of Defense and Melee in the Skills list",
+        "Player tabs now show a pointer cursor and no longer allow accidental text selection when clicked",
+        "Added a sword favicon"
     ],
-    "2026年4月7日":
+    "May 5, 2026":
     [
-        "增加字段显示迷宫尝试次数和迷宫成功率"
+        "Updated equipment data and localized names"
     ],
-    "2026年3月5日":
+    "April 7, 2026":
     [
-        "优化狂怒相关的模拟性能"
+        "Added fields showing Labyrinth attempt count and success rate"
     ],
-    "2026年3月3日":
+    "March 5, 2026":
     [
-        "支持迷宫封印对应的个人增益"
+        "Optimized simulation performance for Fury-related calculations"
     ],
-    "2026年2月24日":
+    "March 3, 2026":
     [
-        "更新迷宫补丁的数据",
-        "新增支持迷宫单体/批量模拟"
+        "Added support for personal buffs corresponding to Labyrinth seals"
     ],
-    "2026年2月1日":
+    "February 24, 2026":
     [
-        "修正战斗等级计算的精度",
-        "修正地下城完成或失败后重新进入战斗的时间间隔 by wangchyan",
-        "修正诅咒和削弱的持续时间 by wangchyan",
-        "修正诅咒和狂怒的触发逻辑 by wangchyan",
-        "修正地下城团灭重置机制的部分逻辑 by wangchyan",
-        "修复守护光环和速度光环部分增益未正确受对应等级加强的异常 by wangchyan",
-        "修复无敌技能未正确影响韧性数值的缺陷 by wangchyan",
-        "修复初次进入战斗时未能优先吃喝的异常 by wangchyan",
-        "战斗时长相关的统计现在仅计算已完成的战斗，不再包含当前未结束的战斗 by wangchyan"
+        "Updated Labyrinth patch data",
+        "Added support for single and batch Labyrinth simulation"
     ],
-    "2026年1月11日":
+    "February 1, 2026":
     [
-        "修复trigger错误计算已阵亡单位的问题 by wangchyan"
+        "Fixed precision issues in Combat Level calculation",
+        "Fixed the re-entry interval into combat after a dungeon completes or fails, by wangchyan",
+        "Fixed the duration of Curse and Weaken, by wangchyan",
+        "Fixed the trigger logic for Curse and Fury, by wangchyan",
+        "Fixed part of the dungeon wipe-reset logic, by wangchyan",
+        "Fixed some Guardian Aura and Speed Aura buffs not correctly scaling with their level, by wangchyan",
+        "Fixed Invincible not correctly affecting Tenacity, by wangchyan",
+        "Fixed food/drinks not being consumed with priority on first entering combat, by wangchyan",
+        "Combat duration statistics now only count completed fights, no longer including the currently ongoing one, by wangchyan"
     ],
-    "2025年12月31日":
+    "January 11, 2026":
     [
-        "实验性功能新增HP/MP可视化图表 by wangchyan",
-        "修复防御伤害未正确受damge加成的异常 by wangchyan",
-        "修复守护光环的治疗加成效果未生效的异常 by wangchyan",
-        "修复快速治疗等技能未正确选择最低%生命为目标的错误 by wangchyan"
+        "Fixed triggers incorrectly evaluating already-dead units, by wangchyan"
     ],
-    "2025年12月30日":
+    "December 31, 2025":
     [
-        "地下城增加最短完成时间记录"
+        "Added an experimental HP/MP visualization chart, by wangchyan",
+        "Fixed Defensive Damage not correctly receiving damage bonuses, by wangchyan",
+        "Fixed Guardian Aura's healing bonus not applying, by wangchyan",
+        "Fixed Quick Aid and similar abilities not correctly targeting the lowest HP% target, by wangchyan"
     ],
-    "2025年12月24日":
+    "December 30, 2025":
     [
-        "修复技能释放选择的缺陷，之前可能存在异常缺蓝等情况"
+        "Added a fastest dungeon-clear time record"
     ],
-    "2025年12月18日":
+    "December 24, 2025":
     [
-        "支持成就系统及对应buff效果",
-        "地下城怪物的掉落不再生效"
+        "Fixed a flaw in ability-cast selection that could previously cause abnormal mana shortages"
     ],
-    "2025年12月6日": [
-        "修复游戏更新后技能在无trigger情况下由[]变为null时造成的异常"
+    "December 18, 2025":
+    [
+        "Added the achievement system and its corresponding buff effects",
+        "Dungeon monster drops no longer apply"
     ],
-    "2025年11月7日": [
-        "兼容支持从CN镜像站调用API获取价格"
+    "December 6, 2025": [
+        "Fixed a crash caused by a skill's trigger changing from [] to null after a game update"
     ],
-    "2025年10月14日": [
-        "修复怪物攻击间隔数值未能适配攻击等级的问题"
+    "November 7, 2025": [
+        "Added support for fetching prices via the CN mirror site's API"
     ],
-    "2025年9月17日": [
-        "修复暴击光环的trigger缺陷"
+    "October 14, 2025": [
+        "Fixed monster attack interval not scaling correctly with attack level"
     ],
-    "2025年9月9日":[
-        "复活时不再错误的清空所有buff",
-        "团灭日志增加反伤、荆棘和DOT伤害记录"
+    "September 17, 2025": [
+        "Fixed a trigger flaw with Critical Aura"
     ],
-    "2025年8月21日": [
-        "增加单挑战斗批量模拟和对应怪物选项",
-        "增加MooPass和社区buff的选项及对应功能",
-        "精炼装备数值加强",
-        "秘法主教属性削弱",
-        "init_client_info_v1.20250819.0.json游戏数据更新"
+    "September 9, 2025":[
+        "Reviving no longer incorrectly clears all buffs",
+        "Wipe logs now record reflect damage, thorns, and DOT damage"
     ],
-    "2025年8月20日": [
-        "修复经验和掉落计算在极端情况下的可能异常"
+    "August 21, 2025": [
+        "Added batch solo-combat simulation and matching monster options",
+        "Added MooPass and community buff options and their functionality",
+        "Buffed refined equipment stats",
+        "Nerfed the Enchanted Bishop",
+        "Updated game data (init_client_info_v1.20250819.0.json)"
     ],
-    "2025年8月19日": [
-        "合并Test和Temp分支的rework内容",
-        "init_client_info_v1.20250818.0.json游戏数据更新"
+    "August 20, 2025": [
+        "Fixed possible edge-case errors in experience and drop calculations"
     ],
-    "2025年8月18日": [
-        "修复贯穿技能可能对相同目标造成重复伤害的问题",
-        "修复团灭日志在黑夜模式下的显示异常",
-        "战斗等级公式更新",
-        "钟乳石魔像的荆棘数值调整",
-        "init_client_info_v1.20250626.0_0817.json游戏数据更新"
+    "August 19, 2025": [
+        "Merged the rework content from the Test and Temp branches",
+        "Updated game data (init_client_info_v1.20250818.0.json)"
     ],
-    "2025年8月16日": [
-        "增加停止模拟按钮 by BKN46",
-        "增加技能顺序调整按钮 by BKN46",
-        "增加团灭日志 by TruthLight",
-        "怪物属性更新",
-        "奥术反射更名为报应",
-        "init_client_info_v1.20250626.0_0815.json游戏数据更新"
+    "August 18, 2025": [
+        "Fixed penetrating abilities possibly dealing duplicate damage to the same target",
+        "Fixed wipe log display issues in dark mode",
+        "Updated the Combat Level formula",
+        "Adjusted Stalactite Golem's Thorns value",
+        "Updated game data (init_client_info_v1.20250626.0_0817.json)"
     ],
-    "2025年8月14日": [
-        "怪物属性更新",
-        "远程和法师装备属性调整",
-        "反伤计算上限调整",
-        "修复战斗间隔释放技能的异常",
-        "修复技能释放判断逻辑的异常",
-        "法力值耗尽比例更加准确",
-        "调整远程经验的15%和魔法经验的12%映射到攻击经验",
-        "init_client_info_v1.20250626.0_0813.json游戏数据更新"
+    "August 16, 2025": [
+        "Added a Stop Simulation button, by BKN46",
+        "Added an ability-order reorder button, by BKN46",
+        "Added wipe logs, by TruthLight",
+        "Updated monster stats",
+        "Renamed Arcane Reflection to Retribution",
+        "Updated game data (init_client_info_v1.20250626.0_0815.json)"
     ],
-    "2025年8月11日": [
-        "怪物属性更新",
-        "近战和物理技能施法时间更新",
-        "盾击和重锤数值调整",
-        "双手盾防御经验加成调整",
-        "init_client_info_v1.20250626.0_0811.json游戏数据更新"
+    "August 14, 2025": [
+        "Updated monster stats",
+        "Adjusted Ranged and Magic equipment stats",
+        "Adjusted the reflect damage cap",
+        "Fixed an issue with ability casts during the combat interval",
+        "Fixed an issue with ability-cast eligibility logic",
+        "Made mana-depletion ratio more accurate",
+        "Adjusted 15% of Ranged experience and 12% of Magic experience to map to Attack experience",
+        "Updated game data (init_client_info_v1.20250626.0_0813.json)"
     ],
-    "2025年8月8日": [
-        "实现组队等级差过大时对掉落和经验的惩罚",
-        "实现怪物经验随狂暴进度百分比增加",
-        "暴击光环数值调整",
-        "增加战斗等级数值显示",
-        "增加等级差距惩罚数值显示",
-        "init_client_info_v1.20250626.0_0807.json游戏数据更新"
+    "August 11, 2025": [
+        "Updated monster stats",
+        "Updated Melee and physical ability cast times",
+        "Adjusted Shield Bash and Hammer values",
+        "Adjusted the defense experience bonus for dual-shield builds",
+        "Updated game data (init_client_info_v1.20250626.0_0811.json)"
     ],
-    "2025年8月7日": [
-        "修复组队战斗时一些重复物品掉落数量异常的缺陷 by contr4l",
-        "init_client_info_v1.20250626.0_0806.json游戏数据更新"
+    "August 8, 2025": [
+        "Implemented drop and experience penalties when group level differences are too large",
+        "Monster experience now increases with enrage progress percentage",
+        "Adjusted Critical Aura values",
+        "Added a Combat Level value display",
+        "Added a level-gap penalty value display",
+        "Updated game data (init_client_info_v1.20250626.0_0807.json)"
     ],
-    "2025年8月3日": [
-        "怪物狂暴机制及对应trigger生效",
-        "精炼装备更新，护符数值调整，守护光环增加闪避率",
-        "init_client_info_v1.20250626.0_0802.json游戏数据更新",
-        "狂怒层数修正为5层",
-        "招架结算机制调整"
+    "August 7, 2025": [
+        "Fixed incorrect stacked item drop quantities during group combat, by contr4l",
+        "Updated game data (init_client_info_v1.20250626.0_0806.json)"
     ],
-    "2025年7月31日": [
-        "物品数据和怪物属性更新",
-        "尖刺外壳和奥术反射重做",
-        "强化数值更新",
-        "删除异常trigger",
-        "狮鹫盾的虚弱重做",
-        "君王剑招架对队友生效",
-        "狂怒特效最大层数修正为6层",
-        "涟漪特效增加10MP恢复",
-        "反伤正确显示其命中率",
-        "反伤机制调整",
-        "同步双手盾属性和反伤荆棘技能数值的调整"
+    "August 3, 2025": [
+        "Added the monster enrage mechanic and its corresponding triggers",
+        "Updated refined equipment; adjusted Charm values; Guardian Aura now grants evasion",
+        "Updated game data (init_client_info_v1.20250626.0_0802.json)",
+        "Corrected max Fury stacks to 5",
+        "Adjusted the Parry resolution mechanic"
     ],
-    "2025年7月22日": [
-        "暴击光环受远程等级加成",
-        "光环基础数值和等级加成调整"
+    "July 31, 2025": [
+        "Updated item data and monster stats",
+        "Reworked Spike Shell and Arcane Reflection",
+        "Updated enhancement values",
+        "Removed broken triggers",
+        "Reworked Griffin Bulwark's Weaken effect",
+        "Regal Sword's Parry now also applies to allies",
+        "Corrected max Fury stacks to 6",
+        "Ripple now also restores 10 MP",
+        "Reflect damage now correctly shows its hit chance",
+        "Adjusted the reflect damage mechanic",
+        "Synced dual-shield stats with the reflect/thorns ability value adjustments"
     ],
-    "2025年7月17日": [
-        "批量模拟支持勾选星球",
-        "经验分配比例调整至30%+70%",
-        "光环及对应trigger，并按对应技能等级百分比加成",
-        "水火自然默认调整为元素光环",
-        "init_client_info_v1.20250626.0_0717.json游戏数据更新"
+    "July 22, 2025": [
+        "Critical Aura now scales with Ranged level",
+        "Adjusted aura base values and level scaling"
     ],
-    "2025年7月11日": [
-        "怪物经验和技能等级公式更新",
-        "闪避和抗性计算公式更新",
-        "力量更替为近战以及对应的兼容",
-        "init_client_info_v1.20250626.0_0711.json游戏数据更新"
+    "July 17, 2025": [
+        "Batch simulation now supports selecting specific zones",
+        "Adjusted the experience split ratio to 30%+70%",
+        "Added auras and their triggers, scaling with a percentage of the corresponding ability level",
+        "Water/Fire/Nature auras now default to the Elemental Aura",
+        "Updated game data (init_client_info_v1.20250626.0_0717.json)"
     ],
-    "2025年7月10日": [
-        "修复贯穿技能由敌人释放时可能多次击中相同目标的缺陷"
+    "July 11, 2025": [
+        "Updated monster experience and ability level formulas",
+        "Updated evasion and resistance calculation formulas",
+        "Renamed Power to Melee, with corresponding backward compatibility",
+        "Updated game data (init_client_info_v1.20250626.0_0711.json)"
     ],
-    "2025年7月9日": [
-        "掉落和掉率调整",
-        "经验调整",
-        "疫病射击和破甲之刺调整",
-        "怪物自动恢复移除",
-        "疫病射击trigger调整",
-        "获取价格使用官方API"
+    "July 10, 2025": [
+        "Fixed a bug where penetrating abilities could hit the same target multiple times when cast by an enemy"
     ],
-    "2025年7月7日": [
-        "怪物属性缩放和地图多难度",
-        "法师技能调整和装备上'技能伤害'词缀生效",
-        "攻击等级和房屋等级对施法速度的影响生效",
-        "物品调整",
-        "精准重做以攻击等级计算",
-        "TEST 远程魔法经验的10%映射到攻击经验！",
-        "经验重做和护符装备"
+    "July 9, 2025": [
+        "Adjusted drops and drop rates",
+        "Adjusted experience values",
+        "Adjusted Pestilent Shot and Fracturing Impact",
+        "Removed monster auto-regeneration",
+        "Adjusted the Pestilent Shot trigger",
+        "Price fetching now uses the official API"
+    ],
+    "July 7, 2025": [
+        "Added monster stat scaling and multiple zone difficulties",
+        "Adjusted Magic abilities; the 'Ability Damage' equipment affix now works",
+        "Attack level and house level now affect cast speed",
+        "Adjusted various items",
+        "Reworked Precision to be calculated from Attack level",
+        "TEST: 10% of Ranged/Magic experience now maps to Attack experience!",
+        "Reworked experience gain and added the Charm equipment slot"
     ]
 }
