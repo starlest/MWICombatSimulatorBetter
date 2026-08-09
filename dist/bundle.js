@@ -5398,9 +5398,9 @@ function renderSelectedWipeEvent(index, simResult) {
             playerElement.textContent = `${player.hrid}: ${player.current}/${player.max}`;
 
             if (player.current <= 0) {
-                playerElement.style.color = darkModeToggle.checked ? '#FF6347' : '#CC0000';
+                playerElement.style.color = '#FF6347';
             } else if (damagedPlayers.has(player.hrid)) {
-                playerElement.style.color = darkModeToggle.checked ? '#00BFFF' : '#007BFF';
+                playerElement.style.color = '#00BFFF';
             }
 
             if (idx > 0) {
@@ -6696,30 +6696,6 @@ function updateUI() {
 
     updateContent();
 }
-
-const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
-
-const storedDarkModeEnabled = localStorage.getItem('darkModeEnabled');
-const darkModeEnabledByDefault = storedDarkModeEnabled === null ? true : storedDarkModeEnabled === 'true';
-
-if (darkModeEnabledByDefault) {
-    body.classList.add('dark-mode');
-    const tables = document.getElementsByClassName('profit-table');
-    for (const table of tables) {
-        table.classList.toggle('table-striped');
-    }
-    darkModeToggle.checked = true;
-}
-
-darkModeToggle.addEventListener('change', () => {
-    body.classList.toggle('dark-mode');
-    const tables = document.getElementsByClassName('profit-table');
-    for (const table of tables) {
-        table.classList.toggle('table-striped');
-    }
-    localStorage.setItem('darkModeEnabled', darkModeToggle.checked);
-});
 
 function updateContent() {
     document.querySelectorAll('[data-i18n]').forEach(function (element) {

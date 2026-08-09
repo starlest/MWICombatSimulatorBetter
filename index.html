@@ -8,6 +8,11 @@
                 "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
         }
 
+        #playerTab .nav-link {
+            cursor: pointer;
+            user-select: none;
+        }
+
         .form-control {
             min-width: 3.60rem
         }
@@ -277,6 +282,43 @@
             border-color: var(--mwi-border);
         }
 
+        .simulation-results-body {
+            font-size: 0.85rem;
+        }
+
+        .combat-stats-body {
+            column-count: 2;
+            column-gap: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .combat-stats-body {
+                column-count: 4;
+            }
+        }
+
+        .combat-stats-body .row {
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 1px 0;
+        }
+
+        .combat-stats-body .row > div {
+            flex: 0 0 auto;
+            max-width: none;
+            width: auto;
+            white-space: nowrap;
+        }
+
+        .combat-stats-body .row > div:last-child {
+            font-weight: 600;
+        }
+
         body.dark-mode .card-header,
         body.dark-mode .card-footer {
             background-color: var(--mwi-surface-2);
@@ -383,7 +425,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-http-backend/1.3.2/i18nextHttpBackend.min.js" integrity="sha512-6KSl9S4uqyiqhlImZ5pcEQKCU7Mk/nyr+nJQAZe9ZY9en6cUmQKG/b3v1Db/1fOiV5zdOjjwWQ/S90p7eDLxgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body class="p-3">
+<body class="p-3 dark-mode">
     <div class="container-fluid">
         <ul class="nav nav-tabs" id="playerTab" role="tablist">
             <li class="nav-item">
@@ -464,15 +506,6 @@
                             data-bs-toggle="modal" data-bs-target="#allSimsModal" style="display: none;" data-i18n="common:allZonesData">
                             All Zones Data
                         </button>
-                    </div>
-                    <div class="d-flex align-items-center gap-2 ms-auto">
-                        <div data-i18n="common:controls.darkMode">
-                        Dark Mode:
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="darkModeToggle">
-                            <span class="slider round"></span>
-                        </label>
                     </div>
                 </div>
             </div>
@@ -979,11 +1012,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-7 d-flex flex-column gap-3">
+                <div class="card order-2">
+                    <div class="card-header">
+                        <b data-i18n="equipmentPanel.combatStats">Combat Stats</b>
+                    </div>
+                    <div class="card-body combat-stats-body">
                 <!-- #region Combat stats -->
-                <div class="row mb-3">
-                    <b data-i18n="equipmentPanel.combatStats">Combat Stats</b>
-                </div>
                 <div class="row">
                     <div class="col-md-8" data-i18n="combatStats.maxHitpoints">Max HP:</div>
                     <div class="col-md-4" id="combatStat_maxHitpoints"></div>
@@ -1269,13 +1304,13 @@
                     <div class="col-md-4" id="combatStat_magicExperience"></div>
                 </div>
                 <!-- #endregion -->
-            </div>
-            <div class="col-md-5">
-                <div class="card">
+                    </div>
+                </div>
+                <div class="card order-1">
                     <div class="card-header">
                         <b data-i18n="common:simulationResults.title">Simulation Results</b>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body simulation-results-body">
                 <div class="row">
                     <!-- #region Simulation Results -->
                     <div class="col-md-5">
@@ -2118,7 +2153,7 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <h3><span data-i18n="common:expense">Expenses</span>: <span id="expensesSpan"></span></h3>
-                                <table class="table table-bordered table-striped profit-table" id="expensesTable">
+                                <table class="table table-bordered profit-table" id="expensesTable">
                                     <tbody>
                                         <tr>
                                             <th data-i18n="marketplacePanel.item">Item</th>
@@ -2131,7 +2166,7 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <h3><span data-i18n="common:revenue">Revenue</span>: <span id="revenueSpan"></span></h3>
-                                <table class="table table-bordered table-striped profit-table" id="revenueTable">
+                                <table class="table table-bordered profit-table" id="revenueTable">
                                     <tbody>
                                         <tr>
                                             <th data-i18n="marketplacePanel.item">Item</th>
@@ -2144,7 +2179,7 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <h3><span data-i18n="common:noRNGRevenue">No RNG Revenue</span>: <span id="noRngRevenueSpan"></span></h3>
-                                <table class="table table-bordered table-striped profit-table" id="noRngRevenueTable">
+                                <table class="table table-bordered profit-table" id="noRngRevenueTable">
                                     <tbody>
                                         <tr>
                                             <th data-i18n="marketplacePanel.item">Item</th>
