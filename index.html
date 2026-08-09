@@ -57,6 +57,61 @@
             margin-left: 5px;
         }
 
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            max-width: 480px;
+        }
+
+        .equipment-slot {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .equipment-slot-spacer {
+            visibility: hidden;
+        }
+
+        .equipment-slot-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .equipment-slot-enh {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .equipment-slot-enh label {
+            font-size: 0.6rem;
+            line-height: 1.1;
+            margin-bottom: 0;
+            opacity: 0.55;
+        }
+
+        .equipment-slot-enh input {
+            align-self: flex-start;
+            width: 3.2rem;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.4rem;
+            min-width: 0;
+            opacity: 0.8;
+        }
+
+        body.dark-mode .equipment-slot {
+            border-color: var(--mwi-border);
+        }
+
         .outlined-box {
             border: 1px solid #ccc; /* Border color */
             border-radius: 4px; /* Rounded corners */
@@ -514,164 +569,155 @@
                     <div class="col-md-8">
                         <!-- #region Equipment -->
                         <div class="row mb-3">
-                            <div class="col-md-2"><b data-i18n="settingsPanel.slots">Slot</b></div>
-                            <div class="col-md-6"><b data-i18n="marketplacePanel.item">Item</b></div>
-                            <div class="col-md-4"><b data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</b></div>
+                            <b data-i18n="equipmentPanel.title">Equipment</b>
                         </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_head" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.head">Head</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_head" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_head" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_neck" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.neck">Neck</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_neck" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_neck" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_earrings" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.earrings">Earrings</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_earrings" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_earrings" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_body" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.body">Body</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_body" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_body" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_legs" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.legs">Legs</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_legs" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_legs" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_feet" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.feet">Feet</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_feet" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_feet" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_hands" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.hands">Hands</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_hands" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_hands" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_ring" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.ring">Ring</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_ring" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_ring" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_weapon" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.mainHand">Weapon</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_weapon" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_weapon" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_off_hand" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.offHand">Offhand</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_off_hand" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_off_hand" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_pouch" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.pouch">Pouch</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_pouch" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_pouch" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_back" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.back">Back</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_back" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_back" class="form-control"
-                                    value="0" min="0" max="20" required />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label for="selectEquipment_charm" class="col-md-2 col-form-label" data-i18n="characterItemsUtil.charm">Charm</label>
-                            <div class="col-md-6">
-                                <select id="selectEquipment_charm" class="form-select">
-                                    <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" id="inputEquipmentEnhancementLevel_charm" class="form-control"
-                                    value="0" min="0" max="20" required />
+                        <div class="row mb-3">
+                            <div class="equipment-grid">
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_back" class="equipment-slot-label" data-i18n="characterItemsUtil.back">Back</label>
+                                    <select id="selectEquipment_back" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_back" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_back" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_head" class="equipment-slot-label" data-i18n="characterItemsUtil.head">Head</label>
+                                    <select id="selectEquipment_head" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_head" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_head" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_neck" class="equipment-slot-label" data-i18n="characterItemsUtil.neck">Neck</label>
+                                    <select id="selectEquipment_neck" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_neck" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_neck" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_weapon" class="equipment-slot-label" data-i18n="characterItemsUtil.mainHand">Weapon</label>
+                                    <select id="selectEquipment_weapon" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_weapon" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_weapon" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_body" class="equipment-slot-label" data-i18n="characterItemsUtil.body">Body</label>
+                                    <select id="selectEquipment_body" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_body" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_body" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_off_hand" class="equipment-slot-label" data-i18n="characterItemsUtil.offHand">Offhand</label>
+                                    <select id="selectEquipment_off_hand" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_off_hand" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_off_hand" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_hands" class="equipment-slot-label" data-i18n="characterItemsUtil.hands">Hands</label>
+                                    <select id="selectEquipment_hands" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_hands" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_hands" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_legs" class="equipment-slot-label" data-i18n="characterItemsUtil.legs">Legs</label>
+                                    <select id="selectEquipment_legs" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_legs" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_legs" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_pouch" class="equipment-slot-label" data-i18n="characterItemsUtil.pouch">Pouch</label>
+                                    <select id="selectEquipment_pouch" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_pouch" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_pouch" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot equipment-slot-spacer"></div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_feet" class="equipment-slot-label" data-i18n="characterItemsUtil.feet">Feet</label>
+                                    <select id="selectEquipment_feet" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_feet" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_feet" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot equipment-slot-spacer"></div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_earrings" class="equipment-slot-label" data-i18n="characterItemsUtil.earrings">Earrings</label>
+                                    <select id="selectEquipment_earrings" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_earrings" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_earrings" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_ring" class="equipment-slot-label" data-i18n="characterItemsUtil.ring">Ring</label>
+                                    <select id="selectEquipment_ring" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_ring" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_ring" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
+                                <div class="equipment-slot">
+                                    <label for="selectEquipment_charm" class="equipment-slot-label" data-i18n="characterItemsUtil.charm">Charm</label>
+                                    <select id="selectEquipment_charm" class="form-select">
+                                        <option value="" data-i18n="characterSelectPage.slots.empty">Empty</option>
+                                    </select>
+                                    <div class="equipment-slot-enh">
+                                        <label for="inputEquipmentEnhancementLevel_charm" data-i18n="marketplacePanel.enhancementLevel">Enhancement Level</label>
+                                        <input type="number" id="inputEquipmentEnhancementLevel_charm" class="form-control"
+                                            value="0" min="0" max="20" required />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row mb-2">
