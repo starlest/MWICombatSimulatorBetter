@@ -25,7 +25,10 @@ module.exports = {
         { from: path.resolve(__dirname, 'index.html'), to: 'index.html' }, // Correctly copy to dist/index.html
         { from: path.resolve(__dirname, 'js'), to: 'js' },
         { from: path.resolve(__dirname, 'locales'), to: 'locales' },
-        { from: path.resolve(__dirname, 'favicon.svg'), to: 'favicon.svg' }
+        { from: path.resolve(__dirname, 'favicon.svg'), to: 'favicon.svg' },
+        { from: path.resolve(__dirname, 'robots.txt'), to: 'robots.txt' },
+        { from: path.resolve(__dirname, 'sitemap.xml'), to: 'sitemap.xml' },
+        { from: path.resolve(__dirname, 'docs', 'screenshot.png'), to: 'social-preview.png' }
       ],
     }),
   ],

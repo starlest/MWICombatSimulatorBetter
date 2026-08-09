@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mwi-combat-simulator-better.vercel.app/sitemap.xml
