@@ -336,6 +336,82 @@
                 <a contenteditable="true" class="nav-link" id="player5-tab" data-bs-toggle="tab" href="#player5" role="tab" aria-controls="player5" aria-selected="false">Player 5</a>
             </li>
         </ul>
+        <!-- #region Actions Toolbar -->
+        <div class="row pt-3">
+            <div class="col-12">
+                <div class="d-flex flex-wrap align-items-center gap-4 p-3 outlined-box">
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="buttonSimulationSetup" class="btn btn-primary" type="button" data-i18n="common:controls.startSimulation"
+                            data-bs-toggle="modal" data-bs-target="#startSimulationModal">
+                            Start Simulation
+                        </button>
+                        <button id="buttonStopSimulation" class="btn btn-danger" type="button" data-i18n="common:controls.stopSimulation">
+                            Stop Simulation
+                        </button>
+                        <div class="progress" style="width: 140px;">
+                            <div id="simulationProgressBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="buttonHouseRoomsModal" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#houseRoomsModal" data-i18n="characterManagement.house">
+                            House Rooms
+                        </button>
+                        <button id="buttonAchievementsModal" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#achievementsModal" data-i18n="achievementsPanel.achievements">
+                            Achievements
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="buttonGetPrices" class="btn btn-primary" type="button" data-i18n="common:getPrices">
+                            Get Prices
+                        </button>
+                        <button id="buttonEditPrices" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#editPricesModal" data-i18n="common:editPrices">
+                            Edit Prices
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="buttonEquipmentSets" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#equipmentSetsModal" data-i18n="common:controls.equipmentSets">
+                            Equipment Sets
+                        </button>
+                        <button id="buttonImportExport" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#importExportModal" data-i18n="common:controls.importExport">
+                            Import/Export
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="buttonPatchNotes" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#patchNotesModal" data-i18n="common:patchNotes">
+                            Patch Notes
+                        </button>
+                        <button id="buttonWipeEvents" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#WipeEventsModal" data-i18n="common:WipeEvents">
+                            Wipe Events
+                        </button>
+                        <button id="buttonExperimentalFeatures" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#ExperimentalFeaturesModal" data-i18n="common:Experiment.ExperimentalFeatures">
+                            Experiment Feautres
+                        </button>
+                        <button id="buttonShowAllSimData" class="btn btn-primary" type="button"
+                            data-bs-toggle="modal" data-bs-target="#allSimsModal" style="display: none;" data-i18n="common:allZonesData">
+                            All Zones Data
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 ms-auto">
+                        <div data-i18n="common:controls.darkMode">
+                        Dark Mode:
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #endregion -->
         <div class="row pt-3">
             <div class="col-md-5">
                 <div class="row mb-3">
@@ -399,18 +475,6 @@
                                 <input type="number" id="inputLevel_magic" class="form-control" value="1" min="1"
                                     max="400" required />
                             </div>
-                        </div>
-                        <div class="row mb-2">
-                            <button id="buttonHouseRoomsModal" class="btn btn-primary" type="button"
-                                data-bs-toggle="modal" data-bs-target="#houseRoomsModal" data-i18n="characterManagement.house">
-                                House Rooms
-                            </button>
-                        </div>
-                        <div class="row mb-2">
-                            <button id="buttonAchievementsModal" class="btn btn-primary" type="button"
-                                data-bs-toggle="modal" data-bs-target="#achievementsModal" data-i18n="achievementsPanel.achievements">
-                                House Rooms
-                            </button>
                         </div>
                         <!-- #endregion -->
                         <div class="row">
@@ -728,43 +792,6 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="row pt-3">
-                            <div class="col-md-auto">
-                                <button id="buttonGetPrices" class="btn btn-primary" type="button" data-i18n="common:getPrices">
-                                    Get Prices
-                                </button>
-                            </div>
-                            <div class="col-md-auto">
-                                <button id="buttonEditPrices" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#editPricesModal" data-i18n="common:editPrices">
-                                    Edit Prices
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col-md-auto">
-                                <button id="buttonPatchNotes" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#patchNotesModal" data-i18n="common:patchNotes">
-                                    Patch Notes
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col-md-auto">
-                                <button id="buttonWipeEvents" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#WipeEventsModal" data-i18n="common:WipeEvents">
-                                    Wipe Events
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col-md-auto">
-                                <button id="buttonExperimentalFeatures" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#ExperimentalFeaturesModal" data-i18n="common:Experiment.ExperimentalFeatures">
-                                    Experiment Feautres
-                                </button>
-                            </div>
-                        </div>
                         <!-- #endregion -->
                     </div>
                     <div class="col-md-7">
@@ -892,60 +919,6 @@
                             </div>
                         </div>
                         <!-- #endregion-->
-                        <!-- #region Simulation Controls -->
-                        <div class="row mb-2 pt-3">
-                            <div class="col-md-auto">
-                                <button id="buttonSimulationSetup" class="btn btn-primary" type="button" data-i18n="common:controls.startSimulation"
-                                data-bs-toggle="modal" data-bs-target="#startSimulationModal">
-                                    Start Simulation
-                                </button>
-                            </div>
-                            <div class="col align-self-center">
-                                <div class="progress">
-                                    <div id="simulationProgressBar" class="progress-bar" role="progressbar"
-                                        style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-auto">
-                                <button id="buttonStopSimulation" class="btn btn-danger" type="button"data-i18n="common:controls.stopSimulation">
-                                    Stop Simulation
-                                </button> 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-auto">
-                                <button id="buttonEquipmentSets" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#equipmentSetsModal" data-i18n="common:controls.equipmentSets">
-                                    Equipment Sets
-                                </button>
-                            </div>
-                            <div class="col-md-auto">
-                                <button id="buttonImportExport" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#importExportModal" data-i18n="common:controls.importExport">
-                                    Import/Export
-                                </button>
-                            </div>
-                            <div class="col-md-auto">
-                                <div data-i18n="common:controls.darkMode">
-                                Dark Mode:
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" id="darkModeToggle">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row mb-2 pt-3">
-                            <div class="col-md-auto">
-                                <button id="buttonShowAllSimData" class="btn btn-primary" type="button"
-                                    data-bs-toggle="modal" data-bs-target="#allSimsModal" style="display: none;" data-i18n="common:allZonesData">
-                                    All Zones Data
-                                </button>
-                            </div>
-                        </div>
-                        <label for="comboBox">Select an Character: </label>
-                        <select id = "profile-combo-container"></select>
-                        <!-- #endregion -->
                     </div>
                 </div>
             </div>
