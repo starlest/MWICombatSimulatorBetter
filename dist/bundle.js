@@ -1961,6 +1961,31 @@ function initEquipmentSection() {
         initEquipmentSelect(type);
         initEnhancementLevelInput(type);
     });
+
+    // Init searchable dropdowns only after every type's options have been added -
+    // the weapon select is populated twice (main_hand, then two_hand). Option data
+    // is passed explicitly rather than relying on Tom Select's native <select>
+    // auto-parsing, which was reading each option's text as an empty string.
+    ["head", "body", "legs", "feet", "hands", "weapon", "off_hand", "pouch", "neck", "earrings", "ring", "back", "charm"].forEach((selectType) => {
+        let selectElement = document.getElementById("selectEquipment_" + selectType);
+        let optionsData = Array.from(selectElement.options).map((opt) => ({ value: opt.value, text: opt.textContent }));
+        new TomSelect(selectElement, {
+            options: optionsData,
+            items: [selectElement.value],
+            maxOptions: null,
+            allowEmptyOption: true,
+            create: false,
+            onFocus: function () {
+                // Clear the current selection chip as soon as the control is
+                // focused, so it's not sitting next to whatever gets typed.
+                // Tom Select restores it automatically on blur if nothing new
+                // was picked, so an abandoned search isn't a lost selection.
+                if (this.items.length > 0) {
+                    this.clear(true);
+                }
+            },
+        });
+    });
 }
 
 function initEquipmentSelect(equipmentType) {
@@ -2195,6 +2220,13 @@ function updateEquipmentState() {
 
         let equipmentSelect = document.getElementById("selectEquipment_" + selectType);
         let equipmentHrid = equipmentSelect.value;
+
+        // Keep the searchable dropdown's displayed value in sync whenever the
+        // underlying <select>'s value is set programmatically (import, equipment
+        // sets, autosave restore, tab switching, etc.) rather than by user click.
+        if (equipmentSelect.tomselect && equipmentSelect.tomselect.getValue() !== equipmentHrid) {
+            equipmentSelect.tomselect.setValue(equipmentHrid, true);
+        }
 
         if (!equipmentHrid) {
             player.equipment[equipmentType] = null;
@@ -6718,7 +6750,48 @@ function updateContent() {
             element.textContent = i18next.t(key);
         }
     });
+
+    // Tom Select renders its own copy of each option's label, so translated
+    // item names need to be pushed into it explicitly after the loop above.
+    // Skip blank translations (e.g. item names resolve via js/i18n.js's own
+    // async i18next init, which can still be pending on the very first call
+    // here) so a not-yet-loaded translation doesn't clobber the good label
+    // Tom Select was already constructed with.
+    document.querySelectorAll('select[id^="selectEquipment_"]').forEach(function (select) {
+        if (select.tomselect) {
+            Array.from(select.options).forEach(function (opt) {
+                if (opt.textContent) {
+                    select.tomselect.updateOption(opt.value, { value: opt.value, text: opt.textContent });
+                }
+            });
+        }
+    });
 }
+
+// The language switcher buttons live in js/i18n.js, a separate non-module
+// script with its own independent updateContent() function - our updateContent()
+// above never runs when they're clicked. Listen for i18next's own event instead,
+// which fires regardless of which script changed the language, and re-translate
+// each equipment option directly rather than relying on the native <option>'s
+// textContent having already been updated (ordering between this event and
+// js/i18n.js's own callback isn't guaranteed).
+i18next.on('languageChanged', function () {
+    document.querySelectorAll('select[id^="selectEquipment_"]').forEach(function (select) {
+        if (!select.tomselect) {
+            return;
+        }
+        Array.from(select.options).forEach(function (opt) {
+            const key = opt.getAttribute('data-i18n');
+            if (!key) {
+                return;
+            }
+            const text = i18next.t(key);
+            if (text) {
+                select.tomselect.updateOption(opt.value, { value: opt.value, text: text });
+            }
+        });
+    });
+});
 
 initEquipmentSection();
 initHouseRoomsModal();

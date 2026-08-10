@@ -193,6 +193,49 @@
             color: var(--mwi-text-muted);
         }
 
+        /* #region Tom Select (searchable dropdowns) */
+        .ts-wrapper.form-select {
+            padding: 0;
+        }
+
+        body.dark-mode .ts-control,
+        body.dark-mode .ts-control input {
+            background-color: var(--mwi-input-bg);
+            color: var(--mwi-text);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .ts-control input::placeholder {
+            color: var(--mwi-text-muted);
+        }
+
+        body.dark-mode .ts-wrapper.focus .ts-control {
+            border-color: var(--mwi-accent);
+            box-shadow: 0 0 0 0.25rem rgba(83, 129, 253, 0.35);
+        }
+
+        body.dark-mode .ts-dropdown {
+            background-color: var(--mwi-input-bg);
+            color: var(--mwi-text);
+            border-color: var(--mwi-border);
+        }
+
+        body.dark-mode .ts-dropdown .option,
+        body.dark-mode .ts-dropdown .no-results {
+            color: var(--mwi-text);
+        }
+
+        body.dark-mode .ts-dropdown .active {
+            background-color: var(--mwi-accent);
+            color: #fff;
+        }
+
+        body.dark-mode .ts-dropdown .optgroup-header {
+            color: var(--mwi-heading);
+            background-color: var(--mwi-surface-2);
+        }
+        /* #endregion */
+
         body.dark-mode .form-check-input {
             background-color: var(--mwi-input-bg);
             border-color: var(--mwi-border);
@@ -458,6 +501,8 @@
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.3.1/css/tom-select.bootstrap5.min.css" integrity="sha512-w7Qns0H5VYP5I+I0F7sZId5lsVxTH217LlLUPujdU+nLMWXtyzsRPOP3RCRWTC8HLi77L4rZpJ4agDW3QnF7cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.3.1/js/tom-select.complete.min.js" integrity="sha512-zdXqksVc9s0d2eoJGdQ2cEhS4mb62qJueasTG4HjCT9J8f9x5gXCQGSdeilD+C7RqvUi1b4DdD5XaGjJZSlP9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js" integrity="sha512-4WlJJ18bTOvB8ask0iufUvS/N3NDs2NJUKXGeK9CGoFayxUASLGsiBAvMtO+dfdp+MNzaOZLStxIwc2rZz5hSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/6.1.3/i18nextBrowserLanguageDetector.min.js" integrity="sha512-w/1n/omCK6/QXznOMYrp+arhVcWM87ioNqNkpWyFYhDFBgLNiwUG9Omp/YGPwy5Q/p7lktUI1eXZX3nN/TDDAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-http-backend/1.3.2/i18nextHttpBackend.min.js" integrity="sha512-6KSl9S4uqyiqhlImZ5pcEQKCU7Mk/nyr+nJQAZe9ZY9en6cUmQKG/b3v1Db/1fOiV5zdOjjwWQ/S90p7eDLxgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
