@@ -20,6 +20,9 @@ import achievementDetailMap from "./combatsimulator/data/achievementDetailMap.js
 
 import patchNote from "../patchNote.json";
 
+import { inject } from "@vercel/analytics";
+inject();
+
 const ONE_SECOND = 1e9;
 const ONE_HOUR = 60 * 60 * ONE_SECOND;
 
